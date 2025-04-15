@@ -14,7 +14,7 @@ console.log('URL Search Params (query):', myUrl.searchParams.keys()); // returns
 console.log('URL Search Params (query):', myUrl.searchParams.values()); // returns URLSearchParams Iterator { 'string' }
 console.log('URL Search Params (query):', myUrl.searchParams.entries()); // returns URLSearchParams Iterator { [ 'query', 'string' ] }
 console.log('URL Search Params (query):', myUrl.searchParams.toString()); // returns 'query=string'
-console.log('URL Search Params (query):', myUrl.searchParams.append('newParam', 'newValue'));
-console.log('URL Search Params (query):', myUrl.searchParams.delete('newParam'));
-console.log('URL Search Params (query):', myUrl.searchParams.set('newParam', 'newValue'));
+console.log('URL Search Params (query):', myUrl.searchParams.append('newParam', 'newValue')); // rturns undefined
+console.log('URL Search Params (query):', myUrl.searchParams.delete('newParam')); // returns undefined
+console.log('URL Search Params (query):', myUrl.searchParams.set('newParam', 'newValue')); // returns undefined
 console.log('URL Search Params (query):', myUrl.searchParams.toString()); // returns 'query=string&newParam=newValue'
