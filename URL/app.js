@@ -1,4 +1,5 @@
-const myUrl = new URL('https://example.com:8000/path/to/resource?query=string#fragment');
+const myUrl = new URL('https://example.com:8000/path/to/resource?query=string#fragment'); // Create a new URL object
+
 console.log('URL:', myUrl); // returns URL object
 console.log('URL Protocol:', myUrl.protocol); // returns 'https:'
 console.log('URL Hostname:', myUrl.hostname); // returns 'example.com'
