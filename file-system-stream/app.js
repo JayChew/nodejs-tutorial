@@ -122,10 +122,63 @@ const fs = require('fs'); // Importing the 'fs' module
 // This is the preferred way to remove directories in production code
 // Note: This will not throw an error if the directory does not exist
 // Note: The callback function is called when the directory is removed
-const dirName = 'new-directory'; // Directory name
-if (fs.existsSync(dirName)) { // Check if the directory exists
-  console.log('Directory already exists.'); // Log message
-} else {
-  console.log('Directory does not exist.'); // Log message
-}
+// const dirName = 'new-directory'; // Directory name
+// if (fs.existsSync(dirName)) { // Check if the directory exists
+//   console.log('Directory already exists.'); // Log message
+// } else {
+//   console.log('Directory does not exist.'); // Log message
+// }
 
+// Synchronous rmdir (blocking)
+// Note: This will block the event loop until the directory is removed
+// This is not recommended in production code
+// but can be useful for scripts or one-off tasks
+// Note: This will throw an error if the directory does not exist
+// fs.rmdir('./new-directory', (err) => { // Removing a directory
+//   if (err) { // Check for errors
+//     return console.error('Error removing directory:', err); // Log any errors
+//   }
+//   console.log('Directory removed successfully.'); // Log success message
+// });
+
+// Synchronous rmdir (blocking)
+// Note: This will block the event loop until the directory is removed
+// This is not recommended in production code
+// but can be useful for scripts or one-off tasks
+// Note: This will throw an error if the directory does not exist
+// fs.rm('./new-directory', { recursive: true }, (err) => { // Removing a directory
+//   if (err) { // Check for errors
+//     return console.error('Error removing directory:', err); // Log any errors
+//   }
+//   console.log('Directory removed successfully.'); // Log success message
+// });
+
+// Asynchronous unlink (non-blocking)
+// Note: This will not block the event loop
+// This is the preferred way to remove files in production code
+// Note: This will not throw an error if the file does not exist
+// fs.rename('./new-directory', './new-directory-renamed', (err) => { // Renaming a file
+//   if (err) { // Check for errors
+//     return console.error('Error renaming file:', err); // Log any errors
+//   }
+//   console.log('File renamed successfully.'); // Log success message
+// });
+
+// Synchronous unlink (blocking)
+// Note: This will block the event loop until the file is removed
+// This is not recommended in production code
+// but can be useful for scripts or one-off tasks
+// fs.stat('example.txt', (err, stats) => { // Getting file stats
+//   if (err) { // Check for errors
+//     return console.error('Error getting file stats:', err); // Log any errors
+//   }
+//   console.log('Directory stats:', stats); // Log the file stats
+//   console.log('Is directory:', stats.isDirectory()); // Check if it's a directory
+// });
+
+fs.watch('./app.js', (eventType, filename) => { // Watching a file for changes
+  console.log(`Event type: ${eventType}`); // Log the event type
+  if (eventType === 'change') { // Check if the event is a change
+    console.log(`File changed: ${filename}`); // Log the filename
+  }
+}); // End of watch event listener
